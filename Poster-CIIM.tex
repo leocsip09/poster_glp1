@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc} %para poner tildes sin cdigo latex
 \usepackage[numbers,super,sort&compress,merge,mcite]{natbib}%
 \usepackage{booktabs}
-%\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{a0size}
 \usepackage{boxedminipage}
 \usepackage{color}
@@ -47,7 +47,7 @@
 \leftlogo[0.70]{ucsm}
 \rightlogo[1]{Unimontes}
 \title{Molecular dynamics interaction study on natural GLP-1 agonists for diabetes mellitus treatment} 
-\author{Stacanelli Camporioni, Isabela \textsuperscript{1}; Ponze Bellido, Leonardo\textsuperscript{2};Gomez Valdez, Badhin*.}
+\author{Stacanelli Camporioni, Isabela\textsuperscript{1}; Ponze Bellido, Leonardo\textsuperscript{2}; Gomez Valdez, Badhin*.}
 \institute{\textsuperscript{1}State University of Montes Claros, \textsuperscript{2}Catholic University of Santa Maria}
 \email{\textsuperscript{1}isabelacamporioni@hotmail.com, \textsuperscript{2}leonardo.ponze.bellido@gmail.com} 
 \conference{Centro de Investigación en Ingeniería Molecular, 05-30 enero, Arequipa, Perú.}
@@ -100,14 +100,13 @@ In this context, GLP-1 \cite{Gilbert2020} have gained increasing attention due t
 %ZAREI, M. et al. Incretin-based therapy: a new horizon in diabetes management. Journal of Diabetes & Metabolic Disorders, v. 23, n. 2, p. 1665-1686, 2024.
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{glp1.png}
+\begin{center}
+  \includegraphics[width=\columnwidth]{glp1.png}
   \captionof{figure}{Final GLP-1 structure.}
   \label{fig-glp1}
-\end{figure}
+\end{center}
 
-Figure \ref{fig-glp1} shows the initial and final stable state of the GLP-1 .
+Figure \ref{fig-glp1} shows the final stable state of the GLP-1.
 
 \section*{Methodology}
 The present study focuses on several platforms and software tools, including the Protein Data Bank (PDB), Chimera, GROMACS, Gaussian. The GLP-1 protein structures had already been analyzed using ChimeraX and GROMACS software. A search for known natural ligands resulted in a total of 30 GLP-1 agonists  candidate compounds. SMILES notation and three-dimensional structures of the ligands were retrieved and verified through PubChem, Lotus, and Coconut databases. The ligands were previously prepared through structural cleaning and geometric optimization using the Gaussian 16 software. The optimized ligands were converted to the PDBQT format for molecular docking. During this step, polar hydrogens were added and nonpolar hydrogens were merged according to AutoDock Vina requirements. Docking simulations were then performed using AutoDock Vina, generating 30 binding poses per ligand with a maximum of 1000 steps per run. The 5 best-ranked binding ligands were selected based on binding affinity scores (verbascoside, salvianolic acid B, hamamelitannin, yohimbine and sennoside A) with values between -9.552 to -8.971, which shows they had a good binding potential.
@@ -144,7 +143,7 @@ Figure \ref{fig:RMSD_RMSF} shows the RMSD and RMSF of this equilibrium showing a
     \begin{tikzpicture}
     \begin{axis}[
         ybar,
-        bar width=20pt,
+        bar width=30pt,
         width=0.9\columnwidth,
         height=12cm,
         xlabel={Ligand},
@@ -188,14 +187,13 @@ Figure \ref{fig:RMSD_RMSF} shows the RMSD and RMSF of this equilibrium showing a
 
 
 \vspace{-1.0cm}
-\begin{figure}[htbp]
-\centering 
+\begin{center}
 \includegraphics[width=1\columnwidth]{selected_RMSD_RMSF_plot(1).png}
 \vspace{0.3cm}
 \vspace{-1.0cm}
 \captionof{figure}{GLP-1-ligands RMSD (top) and RMSF (bottom) after 25 ns.}
 \label{fig:RMSD_RMSF}
-\end{figure}
+\end{center}
 \vspace{1.0cm}
 
 The reactivity of each ligand was analyzed through RMSD and RMSF and as shown in Figure \ref{fig:RMSD_RMSF}. L3 displayed the most negative energy out of all of them (-42.03), therefore it is the most reactive and stable ligand with GLP-1. L5 had the second most negative binding energy (-16.57), showing a good reactivity with GLP-1. L15 had the third most negative binding energy (-27.51), being also a good candidate for further studies. L22 had the fourth most negative binding energy (-18.67). At last, the L13 had a positive binding energy (416.57), making it the most repulsive ligand with GLP-1. 
@@ -226,9 +224,7 @@ The ADMET 3.0 predictions reveal that Sennoside A and Salvianolic Acid B possess
 This study evaluated the interaction of natural ligands with GLP-1, a key target in diabetes treatment. Following blind molecular docking, 5 potential candidates were chosen based on their binding energies and after molecular dynamics simulations it was revealed that Verbascoside (L03) is the most reactive ligand. Salvianolic acid B (L13) displayed the second best reactivity with GLP-1 However, Hamamelitannin (L15) had the third reactivity out of all 5 ligands. Yohimbine (L22) was the fourth more negative binding compound, with the best ADMET toxicity profile, being the most safe candidate for further studies. Sennoside A (L26) showed the least negative binding energy and the worst toxicity profile, making it the least favorable candidate for further development. In conclusion, this study highlights the importance of integrating dynamic studies and toxicity profiling in selecting potential GLP-1 agonists for diabetes treatment. Further experimental validation will be essential to confirm these findings.
 
 \section*{Acknowledgement}%{acknowledgement}
-This study was conducted under the surveillance of Professor Badhin, in the
-computational laboratory of the Catholic University of Santa Maria. We would like
-to thank Professor Badhin for the hospitality and kindness, allowing the realiza-
+This study was conducted under the surveillance of Professor Badhin, in the Center of Investigation of Molecular Engineering of the Catholic University of Santa Maria. We would like to thank Professor Badhin for the hospitality and kindness, allowing the realiza-
 tion of the internship and to learn about molecular engineering, its importance,
 and the opportunity to grow in a enriching research environment. We are also
 grateful for the computational infrastructure that facilitated our analysis. We thank
