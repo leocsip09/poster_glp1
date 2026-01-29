@@ -1,0 +1,262 @@
+\documentclass[portrait,final,20pt,ra0]{sciposter}
+%------------------------------------------------------------------------------
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc} %para poner tildes sin cdigo latex
+\usepackage[numbers,super,sort&compress,merge,mcite]{natbib}%
+\usepackage{booktabs}
+%\usepackage[hidelinks]{hyperref}
+\usepackage{a0size}
+\usepackage{boxedminipage}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\graphicspath{{figures/}}
+\usepackage{ifthen}
+\usepackage{lettrine}
+\usepackage{shadow}
+\usepackage{times}
+\usepackage{eso-pic}
+\usepackage{transparent}
+\usepackage{exscale}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % o una versión cercana compatible
+\usepackage{mathastext}
+\usepackage{svg}
+%------------------------------------------------------------------------------
+\definecolor{BoxCol}{rgb}{0.038,0.038,0.351}
+\definecolor{SectionCol}{rgb}{1.000,1.000,1.000}
+\definecolor{mainCol}{rgb}{1.000,1.000,1.000}
+\definecolor{TextCol}{rgb}{0.000,0.000,0.000}
+\def\columnseprulecolor{\color{BoxCol}}
+\renewcommand{\titlesize}{\Huge}
+\renewcommand{\authorsize}{\LARGE}
+\renewcommand{\instsize}{\large}
+\setmargins[2.0cm]
+\setlength{\parindent}{0.25cm}
+\setlength{\parskip}{0.25cm}
+\setlength{\columnsep}{2.0cm}
+\setlength{\columnseprule}{0.14cm}
+%------------------------------------------------------------------------------
+\renewcommand{\labelitemi}{$\bullet$}
+%------------------------------------------------------------------------------
+\leftlogo[0.70]{ucsm}
+\rightlogo[1]{Unimontes}
+\title{Molecular dynamics interaction study on natural GLP-1 agonists for diabetes mellitus treatment} 
+\author{Stacanelli Camporioni, Isabela \textsuperscript{1}; Ponze Bellido, Leonardo\textsuperscript{2};Gomez Valdez, Badhin*.}
+\institute{\textsuperscript{1}State University of Montes Claros, \textsuperscript{2}Catholic University of Santa Maria}
+\email{\textsuperscript{1}isabelacamporioni@hotmail.com, \textsuperscript{2}leonardo.ponze.bellido@gmail.com} 
+\conference{Centro de Investigación en Ingeniería Molecular, 05-30 enero, Arequipa, Perú.}
+%------------------------------------------------------------------------------
+\begin{document}
+%------------------------------------------------------------------------------
+%\AddToShipoutPictureBG*{\AtPageCenter{\transparent{0.2} \includegraphics[height=\paperheight]{DPP4-Comparison.png}}}
+\AddToShipoutPictureBG*{%
+  \put(\LenToUnit{\dimexpr\paperwidth/2},\LenToUnit{\dimexpr\paperheight/2}){%coloca en la mitad de la pagina
+    \makebox(400,100){%x,y el centro de la imagen en el centro de la pagina
+      \transparent{0.2}%transparencia
+      \includegraphics[height=1.2\paperheight,keepaspectratio]{glp1.png}%
+    }%
+  }%
+}
+%------------------------------------------------------------------------------
+\maketitle{}
+%------------------------------------------------------------------------------
+\begin{multicols*}{3}
+  %------------------------------------------------------------------------------
+  \begin{abstract}
+  Diabetes mellitus is one of the human diseases with the highest morbidity and mortality rate in the world, being of the utmost importance to find alternative treatments to manage the complications of the disorder. GLP-1 is an incretin hormone that enhances insulin secretion and compensates insulin deficiency. In this article, through molecular engineering, we are able to analyse the binding afinity of potential natural GLP-1 agonists by dynamic interac- tions and their ADMET toxicity profiles of the ligands as potential GLP-1 agonists. In our study, thirty compounds were selected for blind docking simulations, the five best-ranked binding ligands proceded with subsequent molecular dynamics simulations.
+
+  \end{abstract}
+  %------------------------------------------------------------------------------
+  \section*{Introduction}
+Diabetes mellitus is a chronic metabolic disorder characterized by persistent hyperglycemia resulting from insulin resistance or defects in insulin secretion and/or action, and it is associated with high morbidity, mortality, and a substantial global economic burden \cite{Zarei_2024,2025}. GLP-1 is an incretin hormone secreted by enteroendocrine L-cells in the distal small intestine and colon, where it activates GLP-1 receptors. Physiologically, GLP-1 enhances glucose-dependent insulin secretion and suppresses glucagon release, thereby contributing to glycemic control\cite{Brown2021,Kuthati2025}.
+Therefore, therapeutic targets such as GLP-1 \cite{Fang2024} are currently highly sought after as medications for diabetes management. In general, GLP-1RAs are preferred over DPP-4 inhibitors because they provide greater reductions in HbA1c and induce clinically meaningful weight loss, as demonstrated in clinical trials. In contrast, DPP-4 inhibitors produce only modest increases in endogenous GLP-1 levels, resulting in smaller glycemic improvements and minimal effects on body weight \cite{Gilbert2020}.  For example, GLP-1 receptor signaling is currently being investigated for its ability to alleviate neuropathic pain mechanisms and to mitigate cardiometabolic risks associated with metabolic dysfunction-associated fatty liver disease (MAFLD) \cite{Kuthati2025, Pezzoli2025}
+In this context, GLP-1 \cite{Gilbert2020} have gained increasing attention due to their role in glucose homeostasis and the development of novel pharmacological strategies \cite{Zarei_2024,Pezzoli2025}. In this study, we aim to identify natural compounds that can act as DPP-4 inhibitors using molecular engineering techniques, employing molecular modeling and docking approaches to screen for natural compounds that may interact with DPP-4, predicting their binding affinities and potential effects. This approach aims to discover low-cost, natural alternatives for diabetes treatment, offering new therapeutic options for managing the disease and its complications. 
+
+%Diabetes mellitus is a chronic metabolic disorder characterized by persistent hyperglycemia resulting from insulin resistance, defects in insulin secretion, and/or action. This condition is associated with high morbidity and mortality rates, generating a substantial economic burden for global health systems (ZAREI et al., 2024; RAMANAND et al., 2025). Given this scenario, the search for effective therapies that act on glycemic homeostasis remains a priority in biomedical research. One of the consolidated therapeutic classes involves the incretin system. Dipeptidyl Peptidase-4 (DPP-4) inhibitors stand out for their ability to prolong the half-life and activity of glucagon-like peptide-1 (GLP-1). This mechanism results in the potentiation of glucose-dependent insulin secretion and the concomitant reduction of glucagon release (SHAO; ZHAO; SUN, 2024; HOSSAIN et al., 2024; KUTHATI; DAVULURI; WONG, 202.
+
+
+%ABBAS, G. et al. Dipeptidyl peptidase IV inhibitors as a potential target for diabetes: patent review 2019 – present. Expert Opinion on Therapeutic Patents, v. 35, n. 3, p. 239–250, 2025.
+
+%BROWN, E. et al. SGLT2 inhibitors and GLP-1 receptor agonists: established and emerging indications. The Lancet, v. 398, n. 10296, p. 262-276, 2021.
+
+%GILBERT, M. P.; PRATLEY, R. E. GLP-1 Analogs and DPP-4 Inhibitors in Type 2 Diabetes Therapy: Review of Head-to-Head Clinical Trials. Frontiers in Endocrinology, Lausanne, v. 11, p. 178, 2020.
+
+%HOSSAIN, A. et al. Characterization of Plant-Derived Natural Inhibitors of Dipeptidyl Peptidase-4 as Potential Antidiabetic Agents: A Computational Study. Pharmaceutics, v. 16, n. 4, p. 483, 2024.
+
+%KUTHATI, Y.; DAVULURI, V. N. G.; WONG, C. S. Therapeutic Effects of GLP-1 Receptor Agonists and DPP-4 Inhibitors in Neuropathic Pain: Mechanisms and Clinical Implications. Biomolecules, v. 15, n. 5, p. 622, 2025.
+
+%PEZZOLI, A. et al. The Management of Cardiometabolic Risk in MAFLD: Therapeutic Strategies to Modulate Deranged Metabolism and Cholesterol Levels. Medicina, Kaunas, v. 61, n. 3, p. 387, 2025.
+
+%RAMANAND, - et al. The Emergence of Bioactive Peptides as Anti-diabetic Agents: A Review. Current Protein & Peptide Science, v. 26, 2025.
+
+%SHAO, D. W.; ZHAO, L. J.; SUN, J. F. Synthesis and clinical application of representative small-molecule dipeptidyl Peptidase-4 (DPP-4) inhibitors for the treatment of type 2 diabetes mellitus (T2DM). European Journal of Medicinal Chemistry, v. 272, p. 116464, 2024.
+
+%ZAREI, M. et al. Incretin-based therapy: a new horizon in diabetes management. Journal of Diabetes & Metabolic Disorders, v. 23, n. 2, p. 1665-1686, 2024.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{glp1.png}
+  \captionof{figure}{Final GLP-1 structure.}
+  \label{fig-glp1}
+\end{figure}
+
+
+\section*{Methodology}
+The present study focuses on several platforms and software tools, including the Protein Data Bank (PDB), Chimera, GROMACS, Gaussian, Web of Science, LaTeX, JabRef. The GLP-1 protein structures had already been analyzed using ChimeraX and GROMACS software. A search for known natural ligands resulted in a total of 30 GLP-1 agonists  candidate compounds. SMILES notation and three-dimensional structures of the ligands were retrieved and verified through PubChem, Lotus, and Coconut databases. The ligands were previously prepared through structural cleaning and geometric optimization using the Gaussian 16 software. The optimized ligands were converted to the PDBQT format for molecular docking. During this step, polar hydrogens were added and nonpolar hydrogens were merged according to AutoDock Vina requirements. Docking simulations were then performed using AutoDock Vina, generating 30 binding poses per ligand with a maximum of 1000 steps per run. The 5 best-ranked binding ligands were selected based on binding affinity scores (verbascoside, salvianolic acid B, hamamelitannin, yohimbine and sennoside A) with values between -9.552 to -8.971, which shows they had a good binding potential.
+
+These selected complexes were further processed in Chimera, where hydrogens were added to the ligands to ensure proper protonation. Ligand topologies and parameters were then generated using the LigParGen server, which provided OPLS-compatible force field parameters, including ligand topology files (.itp), and structure files (.gro), for subsequent molecular dynamics simulations. Hirshfeld atomic charges were calculated for the ligands using Gaussian 16. The resulting charges were adjusted to ensure overall charge neutrality of each ligand and were subsequently incorporated into the ligand topology files for molecular dynamics simulations. After that, molecular dynamics simulations were carried out using GROMACS. The systems were subjected to energy minimization, followed by equilibration under NVT and NPT ensembles, and then to steered molecular dynamics (SMD) simulations. RMSD and RMSF analyses were performed on the GROMACS trajectories to evaluate the global stability and residue-wise flexibility of the protein–ligand complexes. Binding free energy calculations were then conducted using the Molecular Mechanics Poisson-Boltzmann Surface Area (MM/PBSA) method based on simulation snapshots to obtain refined binding affinity estimates beyond static docking performed in gmx\_MMPBSA. 
+
+
+%Kalhotra et al. (2018/2023) ou estudos similares em Frontiers in Pharmacology.
+
+%CGENFF
+%charm guii > force field, for lipids ---> gromacs
+%RMSD and RMSF analyses were performed on the GROMACS trajectories to evaluate the global stability and residue-wise flexibility of the protein–ligand complexes. Binding free energy calculations were then conducted using the Molecular Mechanics Poisson-Boltzmann Surface Area (MM/PBSA) method based on simulation snapshots to obtain refined binding affinity estimates beyond static docking performed in gmx\_MMPBSA. These ligands were evaluated for toxicity using ADMET profiling. a proteina já esta minimizada, nvt, npt e sdm pelo gromacs;
+%gaussian (clean, geometria), docking pelo pdbqt para cortar os hidrogenos por 30 modelos  em 1000 passos pela vina. selecionamos os 5 melhores com otimizacao hidrogewnos com quimera -- hidrogenio no ligante; com ligpargen fazemos a topologia dos ligantes (itp parametros ligantes e gro estrutura), os parametros dos atomos para fazer a simulacao em opls; usa gaussian 16 para cargas de hirsh field (calculo da orbita de cada atomo e faz o possivel para ser neutra, distribucao ), assim esta pronto pra simulacao, simulacao é com gromacs, fazemos os quatro parametros dnv --> rmsd (estabilizacao), rmsf faz a estabilizacao de cada proteina, o segundo resultado é  com mmpbsa > é um docking melhorado, conta todos os parametros pega a simulacao de gromacs e fazemos o calculo de afinidade final. top de proteinas)
+
+%https://www.microbiochemjournal.com/articles/ijcmbt-aid1008.pdf > A threshold of –5.5 kcal/mol (binding affinity) was set for the ligand-protein complexes for screening the effectively docked phytochemical. the highest affinity in experimentally validated inhibitors was-6.3 kcal/mol. This was set as threshold to screen potent and novel inhibitors from the set of phytochemicals, selected in this study.\textbf{}
+
+
+%SYNTHETIC INHIBITORS; https://www.frontiersin.org/journals/molecular-biosciences/articles/10.3389/fmolb.2023.1130625/full
+%https://acmcasereport.org/wp-content/uploads/2023/11/ACMCR-v11-2026.pdf
+
+%"Para validar o protocolo de docking molecular e estabelecer um benchmark robusto de afinidade de ligação, selecionou-se um conjunto de 17 inibidores de DPP-4 (gliptinas), que representam o culminar de 17 anos de pesquisa e desenvolvimento (1998–2014) no tratamento do Diabetes Tipo 2. A escolha deste conjunto específico como controle positivo justifica-se por três fatores principais. Diversidade Estrutural e Química: As 17 gliptinas abrangem as principais classes químicas de inibidores da DPP-4, incluindo cianopirrolidinas (ex: Vildagliptina, Saxagliptina), xantinas (ex: Linagliptina), diprolil (ex: Teneligliptina) e pirimidinedionas (ex: Alogliptina). Essa variabilidade estrutural permite avaliar a capacidade do algoritmo de docking em predizer corretamente poses de ligação para diferentes esqueletos químicos ("scaffolds"), garantindo que o protocolo não seja enviesado para um único tipo de estrutura molecular. Modos de Ligação Caracterizados: Os mecanismos de interação destas gliptinas com o sítio ativo da DPP-4 estão bem documentados, envolvendo ocupações críticas nos bolsões S1, S2 e S2-extenso, bem como interações de ponte salina com os resíduos Glu205 e Glu206. A reprodução in silico destas interações conhecidas serve como validação essencial da acurácia do método, conforme sugerido por estratégias computacionais que utilizam fármacos aprovados (como a Saxagliptina) para comparar a eficácia de novos compostos. Relevância Clínica e Farmacológica: O grupo inclui tanto fármacos já aprovados por agências reguladoras (FDA/EMA) quanto compostos em fases avançadas de estudos clínicos, com valores de IC50​ experimentais conhecidos que variam na faixa nanomolar (ex: Sitagliptina IC50​=18 nM; Linagliptina IC50​=1.0 nM). Isso permite não apenas uma validação estrutural, mas também uma correlação comparativa de scores de energia livre de ligação com a potência biológica real.
+
+\begin{center}
+  % Ajustei para columnwidth para garantir que caiba na coluna do poster
+  \includegraphics[width=0.9\columnwidth]{Verbascoside(1)(1).png}
+  \captionof{figure}{Natural ligands selected for the dynamics.}
+  \label{fig:ligands}
+\end{center}
+
+Figure \ref{fig-glp1} shows the initial and final stable state of the GLP-1 and Figure \ref{fig:RMSD_RMSF} shows the RMSD and RMSF of this equilibrium showing an excellent stable conformation. 
+
+% --- GRÁFICO DE BARRAS (SEM AMBIENTE FIGURE) ---
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        ybar,
+        bar width=20pt,
+        width=0.9\columnwidth,
+        height=12cm,
+        xlabel={Ligand},
+        ylabel={Energy (kcal/mol)},
+        ymin=-12, ymax=0,
+        y dir=normal,
+        symbolic x coords={L22, L13, L12, L26, L15, L3, L10, L2, L1, L6},
+        xtick={L22, L13, L12, L26, L15, L3, L10, L2, L1, L6},
+        axis lines=box,
+        grid=major,
+        grid style={gray!30},
+        tick label style={font=\small},
+        label style={font=\small},
+        yticklabel style={/pgf/number format/fixed},
+        nodes near coords,
+        nodes near coords style={black,font=\footnotesize, yshift=-5pt},
+    ]
+
+    % DADOS AZUIS
+    \addplot+[bar shift=0pt, draw=blue!90, fill=blue!60] coordinates {(L22,-9.552)};
+    \addplot+[bar shift=0pt, draw=blue!90, fill=blue!60] coordinates {(L13,-9.388)};
+    \addplot+[bar shift=0pt, draw=blue!90, fill=blue!60] coordinates {(L12,-9.059)};
+    \addplot+[bar shift=0pt, draw=blue!90, fill=blue!70] coordinates {(L26,-8.982)};
+    \addplot+[bar shift=0pt, draw=blue!90, fill=blue!70] coordinates {(L15,-8.971)};
+
+    % DADOS PRETOS
+    \addplot+[bar shift=0pt, draw=black!90, fill=black!70] coordinates {(L3,-8.962)};
+    \addplot+[bar shift=0pt, draw=black!90, fill=black!70] coordinates {(L10,-8.936)};
+    \addplot+[bar shift=0pt, draw=black!90, fill=black!70] coordinates {(L2,-8.936)};
+    \addplot+[bar shift=0pt, draw=black!90, fill=black!70] coordinates {(L1,-8.540)};
+    \addplot+[bar shift=0pt, draw=black!90, fill=black!70] coordinates {(L6,-8.470)};
+
+    \end{axis}
+    \end{tikzpicture}
+    
+    \captionof{figure}{The 10 best results after blind docking.}
+    \label{fig:blind_docking} 
+\end{center}
+
+%Blind docking simulations were performed using Vina, giving the best ligands and their binding poses. Following docking analysis, the five ligands with the most negative binding affinities (L1-L5) were selected for further study using Vina to predict their binding modes and affinities. The three-dimensional structures of these ligands were cross-checked against their PubChem counterparts, and hydrogens were added using ChimeraX. OPLS force field parameters for the two best ligands were generated using LigParGen, obtaining the necessary .gro and .itp files. Gaussian 16 software was employed to analyze the Hirshfeld charges of the three ligands, providing insight into electronic distribution to correct the ligand topology charges. 
+
+
+During the RMSD and RMSF analysis, shown in Figure \ref{fig:RMSD_RMSF} it was observed that L28 destabilized the protein the most between ns and  ns. 
+\vspace{-1.0cm}
+\begin{figure}[htbp]
+\centering 
+\includegraphics[width=1\columnwidth]{selected_RMSD_RMSF_plot(1).png}
+\vspace{0.3cm}
+\vspace{-1.0cm}
+\captionof{figure}{GLP-1-ligands RMSD (top) and RMSF (bottom) after 25 ns.}
+\label{fig:RMSD_RMSF}
+\end{figure}
+\vspace{1.0cm}
+
+The reactivity of each ligand was analyzed through RMSD and RMSF and as shown in Figure \ref{fig:RMSD_RMSF}. L3 displayed the most negative energy out of all of them (-42.03), therefore it is the most reactive and stable ligand with GLP-1. L5 had the second most negative binding energy (-16.57), showing a good reactivity with GLP-1. L15 had the third most negative binding energy (-27.51), being also a good candidate for further studies. L22 had the fourth most negative binding energy (-18.67). At last, the L13 had a positive binding energy (416.57), making it the least stable ligand with GLP-1. 
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lrr}\toprule
+Compound   &  $\Delta G_{\mathrm{bind}}$ \\\midrule
+verbascoside (L3)      & -42.03 \\
+Salvianolic acid B (L13)      & 416.57 \\
+Hamamelitannin (L15) & –27.51  \\
+Yohimbine (L22) &  –18.67 \\
+Sennoside A (L5) &  -35.78 
+\\\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+The ADMET 3.0 predictions reveal that Sennoside A and Salvianolic Acid B possess prohibitive toxicity profiles marked by predicted liver, kidney, and genetic damage. Hamamelitannin poses specific cardiotoxic (hERG) and cytotoxic risks. Yohimbine appears to be the least systemically toxic regarding organ failure, though respiratory risks are pronounced. Extensive structural modification would be required to mitigate the severe safety liabilities predicted for the majority of these compounds. The toxicity profiles of the top five ligands were evaluated using in silico ADMET 3.0 analysis. The ADMET 3.0 analysis revealed severe safety limitations for the evaluated compounds, with heterogeneity in their toxicity profiles. Sennoside A and Salvianolic Acid B exhibited the most critical toxicity burdens, demonstrating near-maximum probabilities (>99\%) for Drug-Induced Liver Injury (DILI), nephrotoxicity, ototoxicity, and genotoxicity. Consequently, despite their therapeutic potential, the pronounced multi-organ toxicity predicted for the majority of these compounds necessitates extensive structural optimization. 
+
+
+%The toxicity profiles of the five top-ranked ligands were comprehensively evaluated using in silico ADMET 3.0 analysis, revealing a generally critical safety profile for the majority of these compounds characterized by extreme probabilities of multi-organ toxicity. Sennoside A presented the most alarming toxicity profile among all evaluated ligands, with probability scores reaching the theoretical maximum (1.0) for Drug-Induced Liver Injury (DILI), drug-induced nephrotoxicity, ototoxicity, genotoxicity, and skin sensitization. Furthermore, it demonstrated extreme risks of human hepatotoxicity (99.6%), hematotoxicity (98.6%), and AMES mutagenicity (99.9%). Similarly, Salvianolic Acid B displayed a severe, broad-spectrum toxicity profile, showing a near-certain probability of DILI (99.9%) and significant nephrotoxicity (90.5%), alongside a 100% probability of genotoxicity and skin sensitization. Additionally, it exhibited high probabilities of cytotoxicity against A549 lung cells (95.7%), severe ototoxicity (99.7%), and FDAMDD-related issues (99.6%). Hamamelitannin exhibited a distinct toxicity profile characterized by severe cytotoxicity and potential cardiotoxicity; uniquely among this group, it was flagged as a potential hERG blocker. Its profile also includes the highest specific cytotoxicity against A549 lung cells (99.0%), along with high probabilities for DILI (94.3%), skin sensitization (100%), and ototoxicity (98.6%). Verbascoside demonstrated a high-risk profile focused principally on mutagenic and sensory toxicity, showing a very high probability of AMES toxicity (95.2%) and critical ototoxicity (99.6%), alongside elevated risks for DILI (88.4%) and genotoxicity (82.0%). In stark contrast to the other ligands, Yohimbine exhibited a significantly narrower toxicity spectrum. The primary adverse effects predicted were respiratory toxicity (97.0%), skin sensitization (94.3%), and FDAMDD issues (92.7%), lacking the severe organ failure probabilities observed in the other compounds. Collectively, the ADMET 3.0 predictions indicate that extensive structural modification would be required to mitigate the severe safety liabilities predicted for the majority of these compounds, particularly Sennoside A and Salvianolic Acid B.
+
+
+\section*{Conclusions}
+This study evaluated the interaction of natural ligands with GLP-1, a key target in diabetes treatment. Following blind molecular docking, 5 potential candidates were chosen based on their binding energies and after molecular dynamics simulations it was revealed that Verbascoside (L03) is the most reactive ligand. Salvianolic acid B (L13) displayed the second best reactivity with GLP-1 However, Hamamelitannin (L15) had the third reactivity out of all 5 ligands. Yohimbine (L22) was the fourth more negative binding compound, with the best ADMET toxicity profile, being the most safe candidate for further studies. Sennoside A (L26) showed the least negative binding energy and the worst toxicity profile, making it the least favorable candidate for further development. In conclusion, this study highlights the importance of integrating dynamic studies and toxicity profiling in selecting potential GLP-1 agonists for diabetes treatment. Further experimental validation will be essential to confirm these findings.
+
+\section*{Acknowledgement}%{acknowledgement}
+This study was conducted under the surveillance of Professor Badhin, in the
+computational laboratory of the Catholic University of Santa Maria. We would like
+to thank Professor Badhin for the hospitality and kindness, allowing the realiza-
+tion of the internship and to learn about molecular engineering, its importance,
+and the opportunity to grow in a enriching research environment. We are also
+grateful for the computational infrastructure that facilitated our analysis. We thank
+our tutors and colleagues for their patience invaluable guidance, feedback, and
+collaboration.
+  %------------------------------------------------------------------------------
+  \bibliography{references}
+  \bibliographystyle{JAmChemSoc}
+  
+%Zarei M, Sahebi Vaighan N, Farjoo MH, Talebi S, Zarei M. Incretin-based therapy: a new horizon in diabetes management. J Diabetes Metab Disord. 2024 Aug 17;23(2):1665-1686. doi: 10.1007/s40200-024-01479-3. PMID: 39610543; PMCID: PMC11599551.
+
+%Ramanand -, Rohit Singh, Vedpal Singh, Archita Katrolia, The Emergence of Bioactive Peptides as Anti-diabetic Agents: A Review, Current Protein & Peptide Science; Volume 26, Issue , Year 2025, e13892037386831.
+
+%Abbas, G., Akhtar, M. S., Haq, Q. M., Al Amri, I. S., Wang, D., & Hussain, H. (2025). Dipeptidyl peptidase IV inhibitors as a potential target for diabetes: patent review 2019 – present. Expert Opinion on Therapeutic Patents, 35(3), 239–250. https://doi.org/10.1080/13543776.2024.2446226
+
+%Fang H, Niu B, Chen Q. The Discovery and Development of Glucagon-Like Peptide-1 Receptor Agonists. Curr Med Chem. 2024;31(20):2921-2943. doi: 10.2174/0929867330666230416153301. PMID: 37062063.
+
+%Pezzoli A, Abenavoli L, Scarcella M, Rasetti C, Svegliati Baroni G, Tack J, Scarpellini E. The Management of Cardiometabolic Risk in MAFLD: Therapeutic Strategies to Modulate Deranged Metabolism and Cholesterol Levels. Medicina (Kaunas). 2025 Feb 23;61(3):387. doi: 10.3390/medicina61030387. PMID: 40142198; PMCID: PMC11944025.
+
+%Shao DW, Zhao LJ, Sun JF. Synthesis and clinical application of representative small-molecule dipeptidyl Peptidase-4 (DPP-4) inhibitors for the treatment of type 2 diabetes mellitus (T2DM). Eur J Med Chem. 2024 Jun 5;272:116464. doi: 10.1016/j.ejmech.2024.116464. Epub 2024 May 1. PMID: 38704940.
+
+%Hossain A, Rahman ME, Faruqe MO, Saif A, Suhi S, Zaman R, Hirad AH, Matin MN, Rabbee MF, Baek KH. Characterization of Plant-Derived Natural Inhibitors of Dipeptidyl Peptidase-4 as Potential Antidiabetic Agents: A Computational Study. Pharmaceutics. 2024 Apr 1;16(4):483. doi: 10.3390/pharmaceutics16040483. PMID: 38675143; PMCID: PMC11053753. 
+
+%Brown E, Heerspink HJL, Cuthbertson DJ, Wilding JPH. SGLT2 inhibitors and GLP-1 receptor agonists: established and emerging indications. Lancet. 2021 Jul 17;398(10296):262-276. doi: 10.1016/S0140-6736(21)00536-5. Epub 2021 Jun 30. PMID: 34216571.
+
+%Kuthati Y, Davuluri VNG, Wong CS. Therapeutic Effects of GLP-1 Receptor Agonists and DPP-4 Inhibitors in Neuropathic Pain: Mechanisms and Clinical Implications. Biomolecules. 2025 Apr 26;15(5):622. doi: 10.3390/biom15050622. PMID: 40427515; PMCID: PMC12108864. 
+
+%Gilbert MP, Pratley RE. GLP-1 Analogs and DPP-4 Inhibitors in Type 2 Diabetes Therapy: Review of Head-to-Head Clinical Trials. Front Endocrinol (Lausanne). 2020 Apr 3;11:178. doi: 10.3389/fendo.2020.00178. PMID: 32308645; PMCID: PMC7145895.
+
+  %------------------------------------------------------------------------------
+\end{multicols*}
+%------------------------------------------------------------------------------
+\end{document}

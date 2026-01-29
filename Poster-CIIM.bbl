@@ -1,0 +1,83 @@
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{}
+\providecommand{\foreignlanguage}[2]{#2}
+\providecommand{\Capitalize}[1]{\uppercase{#1}}
+\providecommand{\capitalize}[1]{\expandafter\Capitalize#1}
+\providecommand{\bibliographycite}[1]{\cite{#1}}
+\providecommand{\bbland}{and}
+\providecommand{\bblchap}{chap.}
+\providecommand{\bblchapter}{chapter}
+\providecommand{\bbletal}{et~al.}
+\providecommand{\bbleditors}{editors}
+\providecommand{\bbleds}{eds.}
+\providecommand{\bbleditor}{editor}
+\providecommand{\bbled}{ed.}
+\providecommand{\bbledition}{edition}
+\providecommand{\bbledn}{ed.}
+\providecommand{\bbleidp}{page}
+\providecommand{\bbleidpp}{pages}
+\providecommand{\bblerratum}{erratum}
+\providecommand{\bblin}{in}
+\providecommand{\bblmthesis}{Master's thesis}
+\providecommand{\bblno}{no.}
+\providecommand{\bblnumber}{number}
+\providecommand{\bblof}{of}
+\providecommand{\bblpage}{page}
+\providecommand{\bblpages}{pages}
+\providecommand{\bblp}{p}
+\providecommand{\bblphdthesis}{Ph.D. thesis}
+\providecommand{\bblpp}{pp}
+\providecommand{\bbltechrep}{Tech. Rep.}
+\providecommand{\bbltechreport}{Technical Report}
+\providecommand{\bblvolume}{volume}
+\providecommand{\bblvol}{Vol.}
+\providecommand{\bbljan}{January}
+\providecommand{\bblfeb}{February}
+\providecommand{\bblmar}{March}
+\providecommand{\bblapr}{April}
+\providecommand{\bblmay}{May}
+\providecommand{\bbljun}{June}
+\providecommand{\bbljul}{July}
+\providecommand{\bblaug}{August}
+\providecommand{\bblsep}{September}
+\providecommand{\bbloct}{October}
+\providecommand{\bblnov}{November}
+\providecommand{\bbldec}{December}
+\providecommand{\bblfirst}{First}
+\providecommand{\bblfirsto}{1st}
+\providecommand{\bblsecond}{Second}
+\providecommand{\bblsecondo}{2nd}
+\providecommand{\bblthird}{Third}
+\providecommand{\bblthirdo}{3rd}
+\providecommand{\bblfourth}{Fourth}
+\providecommand{\bblfourtho}{4th}
+\providecommand{\bblfifth}{Fifth}
+\providecommand{\bblfiftho}{5th}
+\providecommand{\bblst}{st}
+\providecommand{\bblnd}{nd}
+\providecommand{\bblrd}{rd}
+\providecommand{\bblth}{th}
+\begin{thebibliography}{1}
+
+\bibitem{Zarei_2024}
+Zarei, M.; Sahebi~Vaighan, N.; Farjoo, M.~H.; Talebi, S.; Zarei, M. \emph{Journal of Diabetes and Metabolic Disorders} \textbf{2024}, \emph{23}, 1665–1686.
+
+\bibitem{2025}
+Ramanand, R.; Singh, R.; Singh, V.; Katrolia, A. \emph{Current Protein amp; Peptide Science} \textbf{2025}, \emph{26}.
+
+\bibitem{Brown2021}
+Brown, E.; Heerspink, H. J.~L.; Cuthbertson, D.~J.; Wilding, J. P.~H. \emph{The Lancet} \textbf{2021}, \emph{398}, 262–276.
+
+\bibitem{Kuthati2025}
+Kuthati, Y.; Davuluri, V. N.~G.; Wong, C.-S. \emph{Biomolecules} \textbf{2025}, \emph{15}, 622.
+
+\bibitem{Fang2024}
+Fang, H.; Niu, B.; Chen, Q. \emph{Current Medicinal Chemistry} \textbf{2024}, \emph{31}, 2921–2943.
+
+\bibitem{Gilbert2020}
+Gilbert, M.~P.; Pratley, R.~E. \emph{Frontiers in Endocrinology} \textbf{2020}, \emph{11}.
+
+\bibitem{Pezzoli2025}
+Pezzoli, A.; Abenavoli, L.; Scarcella, M.; Rasetti, C.; Svegliati~Baroni, G.; Tack, J.; Scarpellini, E. \emph{Medicina} \textbf{2025}, \emph{61}, 387.
+
+\end{thebibliography}
